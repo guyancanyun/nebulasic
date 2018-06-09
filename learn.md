@@ -3,3 +3,4 @@
 
 + 乘法 new BigNumber(x).plus(y)  
 + 减法 new BigNumber(x).plus(y)  
++ 小于 lessThan
