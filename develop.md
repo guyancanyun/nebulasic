@@ -175,6 +175,22 @@ SampleContract.prototype = {
 
 module.exports = SampleContract;
 ```
+
+### 日志打印(Console)
+
+console 模块提供了一个简单的调试控制台，类似于网页浏览器提供的 JavaScript 控制台。console 将把所有接收到的 args 以指定级别打印到 Nebulas Logger 上。
+
+· console.log([…args<any>]) — — info 级别
+
+· console.debug([…args<any>]) — — debug 级别
+
+· console.warn([…args<any>]) — — warn 级别
+
+· console.error([…args<any>]) — — error 级别
+
+· console.info ([…args<any>]) — — console.log() 别名
+
+
 ## 部署智能合约  
 可以在命令行下进行部署，本文介绍在web钱包下的部署方法，操作更简单。  
 

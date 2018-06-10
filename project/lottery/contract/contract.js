@@ -6,13 +6,15 @@ var DictItem = function(text) {
 		this.address = obj.address;
 		this.value = new BigNumber(obj.value);
 		this.num = obj.num;
-		this.date = getNowFormatDate();
+		this.date = obj.date;
+		this.term = obj.term;
 	}
 	else {
 		this.address = "";
 		this.value = new BigNumber(0);
 		this.num = "";
-		this.date = getNowFormatDate();
+		this.date = "";
+		this.term = "";
 	}
 }
 
@@ -74,6 +76,8 @@ LottryContract.prototype = {
 		item.address = from;
 		item.value = value;
 		item.num = num;
+		item.date = getNowFormatDate();
+		item.term = this.term;
 		this.count += 1;
 		this.betMap.put(this.count, item);
 		this.balance = new BigNumber(value).plus(this.balance);
@@ -86,18 +90,34 @@ LottryContract.prototype = {
 	//获取投注信息
 	getBets: function(term){
 		var term = parseInt(term);
-		var result  = [];
+		var list  = [];
 		if(term > this.term){
-			return result;
+			return null;
 		}
         for(var i=(term-1)*this.size+1; i<=this.count; i++){
 			var item = this.betMap.get(i);
 			//var value = item.value;
 			item.value = new BigNumber(item.value) / 1000000000000000000;
-            result.push(item);
-        }
+            list.push(item);
+		}
+		var result = {"term":term, "list":list};
         return result;
 	},
+	
+	//获取最新一期投注信息
+	getLatestBets: function(){
+		var list  = [];
+		var term = this.term;
+        for(var i=(term-1)*this.size+1; i<=this.count; i++){
+			var item = this.betMap.get(i);
+			//var value = item.value;
+			item.value = new BigNumber(item.value) / 1000000000000000000;
+            list.push(item);
+		}
+		var result = {"term":term, "list":list};
+        return result;
+	},
+
 
 	//获取中奖信息
 	getWinsByTerm: function(term){
@@ -105,10 +125,21 @@ LottryContract.prototype = {
 		if(term > this.term){
 			return null;
 		}
-		var result = this.winMap.get(term);
-		if(result){
-			result.value = new BigNumber(result.value) / 1000000000000000000;
+		var win = this.winMap.get(term);
+		if(win){
+			win.value = new BigNumber(win.value) / 1000000000000000000;
 		}
+		var result = {"term":this.term, "win": win};
+		return result;
+	},
+
+	//获取最新一期的中奖信息
+	getLatestWins: function(){
+		var win = this.winMap.get(this.term-1);
+		if(win){
+			win.value = new BigNumber(win.value) / 1000000000000000000;
+		}
+		var result = {"term":this.term, "win": win};
         return result;
 	},
 	
@@ -119,7 +150,7 @@ LottryContract.prototype = {
 
 	_transfer: function(address, value) {
 		//只转96%奖金
-		var result = Blockchain.transfer(address, value*0.99);
+		var result = Blockchain.transfer(address, value*0.97);
 		if (result) {
 			var balance = new BigNumber(this.balance);
 			balance = balance.sub(value);
@@ -172,8 +203,13 @@ LottryContract.prototype = {
 		//每次开奖收取3%手续费
 		console.log("transfer 5% fee");
 		this._transfer(this.owner, this.balance*0.05);
-		var reward = this.balance / winNum;
+		var reward = 0;
+		if (winNum != 0){
+			reward = this.balance / winNum;
+		}
 		win.value = reward;
+		win.date = getNowFormatDate();
+		win.term = this.term;
 		this.winMap.put(this.term, win);
 		this.term += 1;
 		for (var j = 0; j < winNum; j++) {
