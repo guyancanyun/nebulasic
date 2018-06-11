@@ -25,12 +25,19 @@ DictItem.prototype = {
 };
 
 var LottryContract = function () {
+	//所有者
 	LocalContractStorage.defineProperty(this, "owner");
+	//最小金额
 	LocalContractStorage.defineProperty(this, "minAmt");
+	//每局人数
 	LocalContractStorage.defineProperty(this, "size");
-    LocalContractStorage.defineProperty(this, 'count');
+	//投注数量
+	LocalContractStorage.defineProperty(this, 'count');
+	//期数
 	LocalContractStorage.defineProperty(this, 'term');
+	//奖池金额
 	LocalContractStorage.defineProperty(this, 'balance');
+	//投注信息
     LocalContractStorage.defineMapProperty(this, "betMap", {
         parse: function(text) {
             return new DictItem(text);
@@ -38,7 +45,8 @@ var LottryContract = function () {
         stringify: function(o) {
             return o.toString();
         }
-    });
+	});
+	//中奖信息
     LocalContractStorage.defineMapProperty(this, "winMap", {
         parse: function(text) {
             return new DictItem(text);
@@ -69,9 +77,6 @@ LottryContract.prototype = {
 		if (num < 1 || num > 12) {
             throw new Error("竞猜数字大于12或小于1");
         }
-        // if (value * 50 > this.balance * 0.9) {
-        //     throw new Error('合约余额不足，请调低竞猜金额！');
-        // }
 		var item = new DictItem(null);
 		item.address = from;
 		item.value = value;
@@ -96,7 +101,6 @@ LottryContract.prototype = {
 		}
         for(var i=(term-1)*this.size+1; i<=this.count; i++){
 			var item = this.betMap.get(i);
-			//var value = item.value;
 			item.value = new BigNumber(item.value) / 1000000000000000000;
             list.push(item);
 		}
@@ -110,7 +114,6 @@ LottryContract.prototype = {
 		var term = this.term;
         for(var i=(term-1)*this.size+1; i<=this.count; i++){
 			var item = this.betMap.get(i);
-			//var value = item.value;
 			item.value = new BigNumber(item.value) / 1000000000000000000;
             list.push(item);
 		}
@@ -152,6 +155,7 @@ LottryContract.prototype = {
 		return this.term;
 	},
 
+	//转账
 	_transfer: function(address, value) {
 		//只转96%奖金
 		var result = Blockchain.transfer(address, value*0.97);
@@ -178,6 +182,7 @@ LottryContract.prototype = {
 	getAdmin: function() {
        return this.owner;
 	},
+
 	//开奖
 	_openPrice: function(){
 		//随机中奖号码
@@ -221,6 +226,7 @@ LottryContract.prototype = {
 		}
 	},	
 
+	//取钱
 	getOutAmt: function(amt) {
         if (Blockchain.transaction.from === this.owner) {
             Blockchain.transfer(this.owner, owner);

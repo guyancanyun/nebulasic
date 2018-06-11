@@ -1,6 +1,6 @@
 "use strict";
 // 合约地址(测试网络)
-var dappAddress = "n1merc2pUcSUesEuYSGS6V39B4DU8tMJYvH";
+var dappAddress = "n1kqSg9sM1GnH1mbjN15ZeihEND2fcUWv35";
 // 直接访问星云链的api
 var nebulas = require("nebulas"),
     Account = nebulas.Account,
