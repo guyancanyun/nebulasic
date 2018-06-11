@@ -1,16 +1,16 @@
 "use strict";
 // 合约地址（测试网络）
-var dappAddress = "n1kqSg9sM1GnH1mbjN15ZeihEND2fcUWv35";
+//var dappAddress = "n1kqSg9sM1GnH1mbjN15ZeihEND2fcUWv35";
 // 合约地址（生产网络）
- //var dappAddress = "n1rkts9WtHQUzShFeduBCGydyAYjTfCvpz8";
+var dappAddress = "n1rkts9WtHQUzShFeduBCGydyAYjTfCvpz8";
 // 直接访问星云链的api
 var nebulas = require("nebulas"),
     Account = nebulas.Account,
     neb = new nebulas.Neb();
 // 设置使用的网络(测试网络)
-neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+//neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
 // 生产网络
-//neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
 // NebPay SDK 为不同平台的交易提供了统一的支付接口
 // 开发者在Dapp页面中使用NebPay API可以通过浏览器插件钱包、手机app钱包等实现交易支付和合约调用。
 var NebPay = require("nebpay");
