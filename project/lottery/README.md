@@ -1,4 +1,6 @@
-## 基于幸运链的彩票DAPP
+## 基于幸运链的彩票DAPP  
+访问地址：https://guyancanyun.github.io/nebulasic/project/lottery/index.html  
+
 ### 游戏规则  
     1）玩家每次下注消耗1Nas，每次下注从1-10随机获得1个数字作为自己的幸运数字，玩家进去待开奖状态   
     2）玩家参与人数达到10人即可自动开奖  
