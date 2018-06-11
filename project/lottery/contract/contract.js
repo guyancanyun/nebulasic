@@ -54,9 +54,9 @@ LottryContract.prototype = {
 		this.count = 0;
 		this.term = 1;
 		this.balance = new BigNumber(0);
-		this.size = 2;
+		this.size = 10;
 		this.owner = Blockchain.transaction.from;
-		this.minAmt = 0.001;
+		this.minAmt = 0.01;
 	},
 
 	//投注
@@ -64,10 +64,10 @@ LottryContract.prototype = {
 		var from = Blockchain.transaction.from;
 		var value = Blockchain.transaction.value;
         if (value < this.minAmt * 1000000000000000000) {
-            throw new Error('竞猜金额少于0.001nas');
+            throw new Error('竞猜金额少于0.01nas');
 		}
-		if (num < 1 || num > 3) {
-            throw new Error("竞猜数字大于10或小于1");
+		if (num < 1 || num > 12) {
+            throw new Error("竞猜数字大于12或小于1");
         }
         // if (value * 50 > this.balance * 0.9) {
         //     throw new Error('合约余额不足，请调低竞猜金额！');
@@ -135,11 +135,15 @@ LottryContract.prototype = {
 
 	//获取最新一期的中奖信息
 	getLatestWins: function(){
-		var win = this.winMap.get(this.term-1);
+		var latestTerm = 1;
+		if(this.term > 1){
+			latestTerm = this.term - 1;
+		}
+		var win = this.winMap.get(latestTerm);
 		if(win){
 			win.value = new BigNumber(win.value) / 1000000000000000000;
 		}
-		var result = {"term":this.term, "win": win};
+		var result = {"term":latestTerm, "win": win};
         return result;
 	},
 	
@@ -177,7 +181,7 @@ LottryContract.prototype = {
 	//开奖
 	_openPrice: function(){
 		//随机中奖号码
-		var ramdomNum = Math.floor(Math.random()*2+1)
+		var ramdomNum = Math.floor(Math.random()*12+1)
 		var win = this.winMap.get(this.term);
         if (!win) {
             win = new DictItem(null);

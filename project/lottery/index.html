@@ -58,7 +58,7 @@
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
 					<h1 class="font-semibold">星云彩</h1>
-					<h4 class="font-thin">基于星云链的彩票游戏</h4>
+					<h4 class="font-thin">基于星云链的彩票小游戏</h4>
 					<br>
 					<br>
 				</div><!-- /col-12 -->
@@ -92,12 +92,12 @@
 				<div class="col-12 col-lg-3 col-sm-6">
 					<p><i class="icon icon-laptop"></i></p>
 					<h2 class="font-thin">规则 <span class="font-semibold">简单</span></h2>
-					<h4 class="font-thin">玩家每次从1-10选择1个数字投注，投注金额金额最少为0.01Nas，满10注自动开奖一次，猜中数字的玩家均分当期累积的奖金奖池.</h4>
+					<h4 class="font-thin">玩家每次从十二生肖中选择1个动物投注，投注金额金额最少为0.01Nas，满10注自动开奖一次，猜中动物的玩家均分当期累积的奖金奖池.</h4>
 				</div><!-- /col12 -->
 				<div class="col-12 col-lg-3 col-sm-6">
 					<p><i class="icon icon-tablet"></i></p>
 					<h2 class="font-thin">操作 <span class="font-semibold">方便</span></h2>
-					<h4 class="font-thin">选定数字下注即可等待开奖，开奖后奖金自动转入您下注的账户，操作方便，老少皆宜.</h4>
+					<h4 class="font-thin">选定动物下注即可等待开奖，开奖后奖金自动转入您下注的账户，操作方便，老少皆宜.</h4>
 				</div><!-- /col12 -->
 				<div class="col-12 col-lg-3 col-sm-6">
 					<p><i class="icon icon-pencil"></i></p>
@@ -237,28 +237,29 @@
 	<div class="slide story" id="slide-4" data-slide="4">
 		<div class="container" id="win" v-clock>
 			<div class="row title-row">
-				<div class="col-12 font-semibold">第 {{term}} 期开奖信息</div>
+				<div class="col-12 font-semibold">第{{term}}期 开奖信息</div>
 			</div>
 			<!-- /row -->
 			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
 			</div>
 			<!-- /row -->
-			<div class="row subtitle-row">
+			<div class="row subtitle-row" style="padding-bottom: 0px">
 				<!-- <div class="col-sm-1 hidden-sm">&nbsp;</div> -->
-					<div class="col-12 col-sm-12 font-light" style="padding-top:10px"> 中奖号码</div>
+					<div class="col-12 col-sm-12 font-light" style="padding-top:10px"> 中奖动物</div>
 					<div class="col-sm-5 hidden-sm">&nbsp;</div>
-					<div class="col-sm-2 col-12"  v-html="getImg(info.num)"></div>
-					<div class="col-12 col-sm-12 font-light">中奖金额 
-						<span class="font-semibold" style="font-size:40px;color:red" v-html="getContent(info.value)"></span>	NAS
+					<div class="col-sm-2 col-12" style="padding-top:20px;padding-bottom: 20px"  v-html="getImg(info.num)"></div>
+					<div class="col-12 col-sm-12 font-light">每注奖金
+						<span class="font-semibold" style="font-size:40px;color:red;" v-html="getReward(info.value)"></span>	nas
 					</div>
+
 					<!-- <div class="col-sm-1 hidden-sm">&nbsp;</div> -->
 				
 				<!-- /row -->
 				<!-- <div class="col-sm-1 hidden-sm">&nbsp;</div> -->
 			</div>
 			<!-- /container -->
-			<div class="row content-row">
+			<div class="row content-row" style="padding-top: 0px">
 				<div>
 					<h2>中奖地址</h2>
 					 <div v-for="item in getAddrs(info.address)" class="list-group-item list-group-item-success" >
@@ -273,43 +274,40 @@
 	<div class="slide story" id="slide-5" data-slide="5">
 		<div class="container" id="bet-list" v-clock>
 			<div class="row title-row">
-				<div class="col-12 font-semibold">第 {{term}} 期投注信息</div>
+				<div class="col-12 font-semibold">第{{term}}期 投注信息</div>
 			</div><!-- /row -->
 			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
+			</div>
+			<div class="row subtitle-row">
+				<div class="col-12 font-semibold">奖池累积
+					<span class="font-semibold" style="font-size:40px;color:red" >{{getBalance()}}</span> nas
+				</div>
 			</div><!-- /row -->
+
 <!-- 			<div class="row subtitle-row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 				<div class="col-12 col-sm-10 font-light">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. <br/><br/> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero.</div>
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 			</div>-->
 
-			<div class="row content-row">
+			<div class="row content-row" style="padding-top:5px">
 				<table class="table table-condensed" >
 					<thead>
-						<tr style="font-size: 18px; color:orangered">
+						<tr style="font-size: 18px; color:black">
 							<th class="font-semibold" data-field="address">地址</th>
 							<th class="font-semibold" data-field="amt">金额</th>
-							<th class="font-semibold" data-field="num">号码</th>
+							<th class="font-semibold" data-field="num" >号码</th>
 							<th class="font-semibold" data-field="date">投注时间</th>
 						</tr>
 					</thead>
 					<tr v-for="item in list" style="font-size: 18px;">
-					<th data-field="address" v-html="getContent(item.address)"></th>
-					<th data-field="amt" v-html="getContent(item.value)"></th>
-					<th data-field="num" v-html="getZh(item.num)"></th>
-					<th data-field="date" v-html="getContent(item.date)"></th>
+					<th data-field="address" style="color:maroon"  v-html="getContent(item.address)"></th>
+					<th data-field="amt" style="color:green" v-html="getContent(item.value)"></th>
+					<th data-field="num" style="color:red" v-html="getZh(item.num)"></th>
+					<th data-field="date" style="color:brown"  v-html="getContent(item.date)"></th>
 					</tr>
 				</table>
-			
-			</div>
-				<!-- <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
-				<div class="col-12 col-sm-12"><h3>地址：xxxxx 时间：2018-11-11 11:11:11 金额：1nas</h3></div>
-				<div class="col-12 col-sm-12"><h3>地址：xxxxx 时间：2018-11-11 11:11:11 金额：1nas</h3></div>
-				<div class="col-12 col-sm-12"><h3>地址：xxxxx 时间：2018-11-11 11:11:11 金额：1nas</h3></div>
-				<div class="col-12 col-sm-12"><h3>地址：xxxxx 时间：2018-11-11 11:11:11 金额：1nas</h3></div>
-				<div class="col-12 col-sm-12"><h3>地址：xxxxx 时间：2018-11-11 11:11:11 金额：1nas</h3></div>
-				<div class="col-1 col-sm-1 hidden-sm">&nbsp;</div> -->
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /slide5 -->
@@ -373,8 +371,8 @@
 	<!-- fancybox init -->
 	<script>
 		"use strict";
-		// 合约地址
-		var dappAddress = "n1r3a9B4Xaek7AxGssDwHBW3S9x8YcNphMb";
+		// 合约地址(测试网络)
+		var dappAddress = "n1merc2pUcSUesEuYSGS6V39B4DU8tMJYvH";
 		// 直接访问星云链的api
 		var nebulas = require("nebulas"),
 			Account = nebulas.Account,
@@ -391,8 +389,6 @@
 		// 定时器
 		var intervalQuery;
 
-		var curTerm = 1;
-
 		//投注
 		$("#bit").click(function () {
 			console.log($("#optionsRadios1").val());
@@ -403,6 +399,7 @@
 				//callback 是交易查询服务器地址,
 				//callback: NebPay.config.mainnetUrl //在主网查询(默认值)
 				//callback: NebPay.config.testnetUrl //在测试网查询
+				// listener: cbPush()
 			};
 			// 执行合约中的save方法
 			serialNumber = nebPay.call(dappAddress, value, callFunction, callArgs, options);
@@ -412,6 +409,9 @@
 			}, 10000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
 
 		});
+		// function cbPush(){
+		// 	console.log("submit a trancatin");
+		// }
 
 		// 根据交易流水号查询执行结果数据
 		function queryResultInfo() {
@@ -420,8 +420,14 @@
 					console.log("tx result: " + resp)
 					//$("#result").val(resp);
 					var respObject = JSON.parse(resp)
-					if (respObject.code === 0) {
-						layer.msg(`恭喜您的下注已成功，请关注开奖结果!`);
+					if (respObject.data.status === 1) {
+						layer.msg("恭喜您的下注交易 "+serialNumber+" 已成功，请关注开奖结果!");
+						console.log("bet success");
+						clearInterval(intervalQuery);
+					}
+					if (respObject.data.status === 0) {
+						layer.msg("很抱歉您的下注交易 "+serialNumber+" 未成功，是稍后再尝试!");
+						console.log("bet failed");
 						clearInterval(intervalQuery);
 					}
 				})
@@ -444,18 +450,26 @@
 			};
 			neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function (resp) {
 				//searchRes(resp)
-				console.log("term is：" + resp.result);
-				curTerm = resp.result;
+				console.log("latest term is：" + resp.result);
 				layer.msg("第 "+resp.result+" 期正在投注中...");
 			}).catch(function (err) {
 				//cbSearch(err)
 				console.log("error:" + err.message)
 			});
 		}
-
 		getLatestTerm();
 		getLatestBets();
 		getLatestWins();
+		getBalance();
+
+        //定时器刷新数据
+		setInterval(function () {
+			//getLatestTerm();
+			getLatestBets();
+			getLatestWins();
+			getBalance();   
+			console.log("refresh data per 20s");               
+		}, 15000);
 
 		// function getBetsByTerm(term) {
 		// 	if(!term){
@@ -505,6 +519,26 @@
 			})
 		}
 
+		function getBalance() {
+			var from = Account.NewAccount().getAddressString();
+			var value = "0";
+			var nonce = "0"
+			var gas_price = "1000000"
+			var gas_limit = "2000000"
+			var callFunction = "getBalance";
+			var callArgs = "[]";
+			var contract = {
+				"function": callFunction,
+				"args": callArgs
+			}
+			neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function (resp) {
+				console.log("balance is：" + resp.result);
+				Vue.set(app, 'balance', resp.result);
+			}).catch(function (err) {
+				console.log("error:" + err.message)
+			})
+		}
+
 	    function getLatestWins() {
 			var from = Account.NewAccount().getAddressString();
 			var value = "0";
@@ -529,14 +563,17 @@
 			    obj = eval(JSON.parse(obj))	;
 			    var term = obj.term;
 			    var info = obj.win;
-				console.log("return of get wins call: " + JSON.stringify(info))
-				if (!info) {
-					layer.msg('没有查询到中奖信息！');
+				console.log("return lastest wins: " + JSON.stringify(info))
+				// if (!info) {
+				// 	//layer.msg('没有查询到中奖信息！');
+				// }
+				console.log("win term is: " + term);
+				if(info != null){
+					Vue.set(winx, 'info', info);
 				}
-				Vue.set(winx, 'info', info);
 				Vue.set(winx, 'term', term);
 				
-			}).catch(function (err) {
+			}).catch(function (err) {	
 				//cbSearch(err)
 				console.log("error:" + err.message)
 			})
@@ -547,7 +584,7 @@
 			obj = eval(JSON.parse(obj))	;
 			var term = obj.term;
 			var list = obj.list;
-			console.log("return of rpc call: " + JSON.stringify(obj))
+			console.log("return lastest bes: " + JSON.stringify(obj))
 			if (list == []) {
 				layer.msg('没有查询中奖信息');
 			} 
@@ -569,7 +606,8 @@
 		el: '#bet-list',
 		data: {
 			list: [],
-			term: null
+			term: null,
+			balance: 0
 		},
 		methods: {
 			getContent:function(text){
@@ -578,7 +616,16 @@
 			getZh: function(text){
 				var source = transferValToDst(text);
 				return source["name"];
+			},
+			getBalance:function(){
+				// var num = new Number(this.balance);
+				// return num.toFixed(4);
+				return Math.round(this.balance*1000000)/1000000;
 			}
+			// getBalance:function(){
+			// 	var val = new Number(13.2334);
+			// 	return val.tofix(4);
+			// }
 		}
 	});
 
@@ -587,12 +634,16 @@
 		el: '#win',
 		data: {
 			info:{},
-			term:null 	
+			term:null,
+			balance:0 	
 		},
 		methods: {
-			getContent:function(text){
-
-                return text;   
+			getReward:function(text){
+                if(text == null){
+					return 0;
+				}else{
+					return Math.round(text*1000000)/1000000;
+				}   
 			},
 			getAddrs: function(text){
 				if(!text){
@@ -607,7 +658,7 @@
 				var source = transferValToDst(text);
 				var url = source["url"];
 				url =  '<img src="' + url + '" class="img-rounded">';
-				console.log(url);
+				//console.log(url);
 				return url;
 			},
 			getZh: function(text){
