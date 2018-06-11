@@ -1,16 +1,16 @@
 "use strict";
 // 合约地址（测试网络）
-//var dappAddress = "n1kqSg9sM1GnH1mbjN15ZeihEND2fcUWv35";
+var dappAddress = "n1kqSg9sM1GnH1mbjN15ZeihEND2fcUWv35";
 // 合约地址（生产网络）
- var dappAddress = "n1rkts9WtHQUzShFeduBCGydyAYjTfCvpz8";
+ //var dappAddress = "n1rkts9WtHQUzShFeduBCGydyAYjTfCvpz8";
 // 直接访问星云链的api
 var nebulas = require("nebulas"),
     Account = nebulas.Account,
     neb = new nebulas.Neb();
 // 设置使用的网络(测试网络)
-//neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
 // 生产网络
-neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+//neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
 // NebPay SDK 为不同平台的交易提供了统一的支付接口
 // 开发者在Dapp页面中使用NebPay API可以通过浏览器插件钱包、手机app钱包等实现交易支付和合约调用。
 var NebPay = require("nebpay");
@@ -41,15 +41,14 @@ $("#bit").click(function () {
     };
     // 执行合约中的save方法
     serialNumber = nebPay.call(dappAddress, value, callFunction, callArgs, options);
-    //设置定时查询交易结果
-    intervalQuery = setInterval(function () {
-        queryResultInfo();
-    }, 10000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
-
 });
 
 function cbPush(){
-    layer.msg("每笔交易需要15-20s时间确认，请您耐心等待");
+    layer.msg("每笔投注需要15-20s时间确认，请您耐心等待");
+    //设置定时查询交易结果
+    intervalQuery = setInterval(function () {
+        queryResultInfo();
+    }, 15000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
 }
 
 // 根据交易流水号查询执行结果数据
@@ -59,18 +58,17 @@ function queryResultInfo() {
             console.log("tx result: " + resp)
             //$("#result").val(resp);
             var respObject = JSON.parse(resp)
-            if (respObject.code === 1){
-                clearInterval(intervalQuery);
+             if (respObject.code != 0){
                 return;
             }
             if (respObject.data.status === 1) {
-                layer.msg("恭喜您的下注交易 " + serialNumber + " 已成功，请关注开奖结果!",{icon: 1});
+                layer.msg("恭喜您的投注已成功，请关注开奖结果!",{icon: 1});
                 console.log("bet success");
                 clearInterval(intervalQuery);
                 getLatestBets();
             }
             if (respObject.data.status === 0) {
-                layer.msg("很抱歉您的下注交易 " + serialNumber + " 未成功，是稍后再尝试!",{icon: 2});
+                layer.msg("抱歉您的投注未成功，是稍后再尝试!",{icon: 2});
                 console.log("bet failed");
                 clearInterval(intervalQuery);
             }
