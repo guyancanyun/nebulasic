@@ -29,4 +29,3 @@
      4. 查询期数：getTerm
      5. 发送交易：trancation
      6. 接受转账：accept
-f
