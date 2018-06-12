@@ -211,4 +211,6 @@ console 模块提供了一个简单的调试控制台，类似于网页浏览器
 
 执行read方法，查看信息
 
+https://mp.weixin.qq.com/s?__biz=MzI3NzExODg4OA==&mid=2650822384&idx=1&sn=e985d2b5bbdb88638e21959568dbdb0a&scene=21#wechat_redirect
+
 
