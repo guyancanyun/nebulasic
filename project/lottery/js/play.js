@@ -63,13 +63,13 @@ function queryResultInfo() {
             }
             if (respObject.data.status === 1) {
                 layer.msg("恭喜您的投注已成功，请关注开奖结果!",{icon: 1});
-                console.log("bet success");
+                // console.log("bet success");
                 clearInterval(intervalQuery);
                 getLatestBets();
             }
             if (respObject.data.status === 0) {
                 layer.msg("抱歉您的投注未成功，是稍后再尝试!",{icon: 2});
-                console.log("bet failed");
+                // console.log("bet failed");
                 clearInterval(intervalQuery);
             }
         })
@@ -170,7 +170,7 @@ function getLatestWins() {
         // if (!info) {
         // 	//layer.msg('没有查询到中奖信息！');
         // }
-        console.log("win term is: " + term);
+        //console.log("win term is: " + term);
         if (info != null) {
             Vue.set(winx, 'info', info);
         }
@@ -312,7 +312,7 @@ $(document).ready(function (e) {
 $(".itemSelect").change(  
     function() {  
     var id = $("input[name='optionsRadios']:checked").val(); 
-    console.log("radio value change to:"+id);
+    // console.log("radio value change to:"+id);
     var resource = transferValToDst(id);
     layer.msg("您选择了 " + resource["name"],{icon: 3});
     }  
