@@ -6,9 +6,9 @@ Nebulas实现了NVM虚拟机来运行智能合约，NVM的实现使用了JavaScr
 3. 智能合约里面的私有方法是以_开头的方法，私有方法不能被外部直接调用； 
 
 ### 智能合约存储区  
-星云链智能合约(smart contract)提供了链上数据存储功能。类似于传统的key-value存储系统（eg:redis），可以付费（消耗gas）将数据存储到星云链上。
+> 星云链智能合约(smart contract)提供了链上数据存储功能。类似于传统的key-value存储系统（eg:redis），可以付费（消耗gas）将数据存储到星云链上。
 
-星云链的智能合约运行环境内置了存储对象==LocalContractStorage==，可以存储数字，字符串，JavaScript对象，存储数据只能在智能合约内使用，其他合约不能读取存储的内容。
+> 星云链的智能合约运行环境内置了存储对象==LocalContractStorage==，可以存储数字，字符串，JavaScript对象，存储数据只能在智能合约内使用，其他合约不能读取存储的内容。
 
 基础用法
 LocalContractStorage的简单接口包括set,get,del接口，实现了存储，读取，删除数据功能。存储可以是数字，字符串，对象。
