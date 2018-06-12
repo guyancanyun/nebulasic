@@ -11,8 +11,8 @@
 
 > **解决办法**
 
-在钱包源代码找到`ui-block.js`这个文件打开，然后搜索字符串Local Nodes，在这个apiList中加入你的私有链连接信息后保存就OK啦。
-![钱包插件](resource/wallet_1.png)
-重启打开钱包后你就会发现多了一项刚才的配置了，在尝试发一笔交易，完美搞定。
-![钱包插件](resource/wallet_3.png)
+在钱包源代码找到`ui-block.js`这个文件打开，然后搜索字符串Local Nodes，在这个apiList中加入你的私有链连接信息后保存就OK啦。   
+![钱包插件](resource/wallet_1.png)  
+重启打开钱包后你就会发现多了一项刚才的配置了，在尝试发一笔交易，完美搞定。  
+![钱包插件](resource/wallet_3.png)  
 
