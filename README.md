@@ -1,5 +1,5 @@
 
-# 星云链学习  
+# 星云链(nebulasic)  
 这里是星云链的一些知识和项目积累，欢迎各位路过的大侠给小弟提提建议，我的WX：`guyancanyun`。
 ## 快速链接
 + [搭建环境](https://github.com/guyancanyun/nebulasic/blob/master/environment.md)
