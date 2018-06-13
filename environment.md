@@ -32,12 +32,7 @@ export GOPATH=/path/to/workspace
 
 #### 安装Go依赖库
 
-在Go-Nebulas中，Go的三方库都通过[Dep](https://github.com/golang/dep)来做管理。
-
-| Components | Version | Description |
-|----------|-------------|-------------|
-[Dep](https://github.com/golang/dep) | >= 0.3.1 | Dep is a dependency management tool for Go. |
-
+在Go-Nebulas中，Go的三方库都通过[Dep](https://github.com/golang/dep)来做管理。Dep版本 >= 0.3.1
 #### 安装Dep工具
 
 * 通过源码来安装Dep
@@ -68,7 +63,7 @@ git checkout master
 ```
 #### 下载Go三方库
 
-我们切换到Go-Nebulas项目根目录，然后使用Dep来下载三方库。
+切换到Go-Nebulas项目根目录，然后使用Dep来下载三方库。
 
 ```bash
 cd $GOPATH/src/github.com/nebulasio/go-nebulas
@@ -84,7 +79,7 @@ make dep
 
 #### 编译可执行文件
 
-完成所有上述依赖库的安装后，现在我们可以进入Go-Nebulas根目录编译星云链的可执行文件了。
+完成所有上述依赖库的安装后就可以切到Go-Nebulas根目录编译星云链的可执行文件了。
 
 ```bash
 cd $GOPATH/src/github.com/nebulasio/go-nebulas
@@ -225,8 +220,6 @@ stats {
 
 ```
 
-A lot of examples can be found in `$GOPATH/src/github.com/nebulasio/go-nebulas/conf/`
-
 ### 启动星云链
 
 > 这样方式启动的星云链是自己建立的一条的私有链，和其他节点没有任何关联。
@@ -253,9 +246,10 @@ cd $GOPATH/src/github.com/nebulasio/go-nebulas
 
 > 提示: 目前的DPoS共识算法，会有21个节点轮流出块。由于只启动了21个矿工节点中的一个矿工节点，所以每隔15*21s才出一个块。可以同时启动更多的矿工节点，填补的空缺，但需要注意端口避免冲突。
 
+### 交易测试
 尝试用钱包发送一个交易测试看看服务节点的http服务是否正常启动。  
 ![txn_test](resource/txn_1.png)  
-然后等待看看交易最后是否成功，如果是SUCCESS则表明了旷工启动打包区块是正常的。  
+然后等待看看交易最后是否成功，如果交易状态返回SUCCESS则表明了矿工打包区块是正常的。  
 ![txn_test](resource/txn_2.png)
 
 
