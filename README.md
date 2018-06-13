@@ -6,4 +6,4 @@
 
 
 
-·欢迎一同探讨学习区块链，我的WX：guyancanyun·
+`欢迎一起探讨学习区块链，我的WX：guyancanyun`
