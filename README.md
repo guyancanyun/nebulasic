@@ -7,7 +7,7 @@
 + [如何调试](https://github.com/guyancanyun/nebulasic/blob/master/debug.md)
 + [开发知识](https://github.com/guyancanyun/nebulasic/blob/master/learn.md)
 + [nebPay使用](https://github.com/guyancanyun/nebulasic/blob/master/nebPay.md)
-## DAPP项目
+## DAPP实战
 十二生肖抽奖：https://guyancanyun.github.io/nebulasic/project/lottery/index.html
 
 
