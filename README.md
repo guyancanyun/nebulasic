@@ -8,8 +8,7 @@
 + [开发知识](https://github.com/guyancanyun/nebulasic/blob/master/learn.md)
 + [nebPay使用](https://github.com/guyancanyun/nebulasic/blob/master/nebPay.md)
 ## DAPP实战
-十二生肖抽奖：https://guyancanyun.github.io/nebulasic/project/lottery/index.html
-
+1. [十二生肖抽奖](https://github.com/guyancanyun/nebulasic/tree/master/project/lottery)  ([点击这里试玩](https://guyancanyun.github.io/nebulasic/project/lottery/index.html))  
 
 
 
