@@ -6,7 +6,7 @@
 + [智能合约](https://github.com/guyancanyun/nebulasic/blob/master/develop.md)
 + [如何调试](https://github.com/guyancanyun/nebulasic/blob/master/debug.md)
 + [开发知识](https://github.com/guyancanyun/nebulasic/blob/master/learn.md)
-+ [nebPay使用](https://github.com/guyancanyun/nebulasic/blob/master/nebPay.md)
++ [nebPay开发](https://github.com/guyancanyun/nebulasic/blob/master/nebPay.md)
 ## DAPP实战
 1. [十二生肖抽奖](https://github.com/guyancanyun/nebulasic/tree/master/project/lottery)  ([点击这里试玩](https://guyancanyun.github.io/nebulasic/project/lottery/index.html))  
 
