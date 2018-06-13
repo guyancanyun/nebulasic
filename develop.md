@@ -37,7 +37,7 @@ LocalContractStorage除了基本的set,get,del方法，还提供方法来绑定�
 
 绑定属性
 在绑定一个合约属性时，需要提供对象实例，属性名和序列化方法。
-```
+```JS
 // SampleContract的`size`属性为存储属性，对`size`的读写会存储到链上，
 // 此处的`descriptor`设置为null，将使用默认的JSON.stringify()和JSON.parse()
 LocalContractStorage.defineProperty(this, "size", null);
@@ -79,7 +79,7 @@ SampleContract.prototype = {
 
 ```
 绑定Map属性
-```
+```JS
 'use strict';
 
 var SampleContract = function () {
@@ -124,7 +124,7 @@ module.exports = SampleContract;
 ```
 Map数据遍历
 在智能合约中如果需要遍历map集合，可以采用如下方式：定义两个map,分别是arrayMap,dataMap，arrayMap采用严格递增的计数器作为key,dataMap采用data的key作为key,详细参见set方法。遍历实现参见forEach,先遍历arrayMap,得到dataKey,再对dataMap遍历。Tip：由于Map遍历性能开销比较大，不建议对大数据量map进行遍历，建议按照limit,offset形式进行遍历，否者可能会由于数据过多，导致调用超时。
-```
+```JS
 "use strict";
 
 var SampleContract = function () {
