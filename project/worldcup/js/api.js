@@ -101,7 +101,6 @@ function queryResultInfo() {
                 layer.msg("您的操作已经成功!",{icon: 1});
                 // console.log("bet success");
                 clearInterval(intervalQuery);
-                getLatestBets();
             }
             if (respObject.data.status === 0) {
                 layer.msg("您的操作失败了，是稍后再尝试!",{icon: 2});
