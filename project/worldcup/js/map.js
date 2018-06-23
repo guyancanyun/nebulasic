@@ -771,7 +771,13 @@ $(".team").click(function(){
         // }
         ,content:
         '<div>'
-        +'<div id="comments" class="activity-wrap"></div>'
+        +'<div id="comments" class="activity-wrap">'
+        +'<div class="spinner">'
+        +'  <div class="bounce1"></div>'
+        +'  <div class="bounce2"></div>'
+        +'  <div class="bounce3"></div>'
+        +'</div>'
+        +'</div>'
         +'<div style="padding-left:10px;padding-right:10px;position:absolute; bottom:0px; width:100%" ><textarea id="inputtext" style="line-height:20px;background:#dddddd" class="single-textarea" placeholder="输入评论..."  required=""></textarea>  </div>'
 	    +'</div>'
         ,btn1: function(index, layero){

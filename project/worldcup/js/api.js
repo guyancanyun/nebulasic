@@ -82,9 +82,12 @@ function callCommentApi(team, content){
 function cbPush(){
     layer.msg("操作需要15-20s时间确认，请您耐心等待");
     //设置定时查询交易结果
-    intervalQuery = setInterval(function () {
+    var intervalTmp = setInterval(function () {
         queryResultInfo();
     }, 15000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+    console.log("aaaa"+intervalTmp);
+    clearInterval(intervalQuery);
+    intervalQuery = intervalTmp;
 }
 
 // 根据交易流水号查询执行结果数据
@@ -198,6 +201,7 @@ function getCommentsOfTeam(team) {
         var obj = resp.result;    ////resp is an object, resp.result is a JSON string
         console.log("comments:" + obj);
         obj = eval(JSON.parse(obj));
+        $('.spinner').css({ "display": "none" });
         $.each(obj, function(i, value) {
             var html =
             '<div class="item" >'
