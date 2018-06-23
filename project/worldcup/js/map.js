@@ -759,6 +759,7 @@ $(".team").click(function(){
         ,resize: false
         ,btn: ['评论', '投票','取消']
         ,btnAlign: 'c'
+        ,shadeClose: true
         ,moveType: 1 //拖拽模式，0或者1
         // ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">内容<br>内容</div>'
         // ,content:'<div>我开始留言啦</div><div>xxxxxx|2017010103023|</div>'+'<input id="aa" type="text">'
