@@ -779,7 +779,7 @@ $(".team").click(function(){
         +'  <div class="bounce3"></div>'
         +'</div>'
         +'</div>'
-        +'<div style="padding-left:10px;padding-right:10px;position:absolute; bottom:0px; width:100%" ><textarea id="inputtext" style="line-height:20px;background:#dddddd" class="single-textarea" placeholder="输入评论..."  required=""></textarea>  </div>'
+        +'<div style="padding-left:10px;padding-right:10px;position:absolute; bottom:0px; width:100%" ><textarea id="inputtext" style="line-height:20px;background:#dddddd" class="single-textarea" placeholder="输入留言..."  required=""></textarea>  </div>'
 	    +'</div>'
         ,btn1: function(index, layero){
             // console.log($("#aa").val());
@@ -787,7 +787,7 @@ $(".team").click(function(){
             var content = $("#inputtext").val();
             // console.log(content);
             if(isEmpty(content)){
-                layer.alert('评论不能为空，请重新输入', {icon: 2});
+                layer.alert('留言不能为空，请重新输入', {icon: 2});
             }
             else if(content.length > 60){
                 layer.alert('输入字符数超过60个，请重新输入', {icon: 2});
