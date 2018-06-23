@@ -1,0 +1,142 @@
+@media screen and (max-width: 320px) {
+    #map_base svg {
+        height: 100px;
+    }
+    }
+    
+    @media screen and (max-width: 400px) and (min-width: 321px) {
+    #map_base svg {
+        height: 134px;
+    }
+    }
+    
+    @media screen and (max-width: 480px) and (min-width: 401px) {
+    #map_base svg {
+        height: 170px;
+    }
+    }
+    
+    @media screen and (max-width: 568px) and (min-width: 481px) {
+    #map_base svg {
+        height: 210px;
+    }
+    }
+    
+    @media screen and (max-width: 685px) and (min-width: 569px) {
+    #map_base svg {
+        height: 252px;
+    }
+    }
+    
+    @media screen and (max-width: 767px) and (min-width: 686px) {
+    #map_base svg {
+        height: 310px;
+    }
+    }
+    
+    @media screen and (max-width: 979px) and (min-width: 768px) {
+    #map_base svg {
+        height: 360px;
+    }
+    }
+    
+    @media screen and (max-width: 1024px) and (min-width: 980px) {
+    #map_base svg {
+        height: 470px;
+    }
+    }
+    
+    @media screen and (max-width: 1280px) and (min-width: 1025px) {
+    #map_base svg {
+        height: 470px;
+    }
+    }
+    
+    @media screen and (min-width: 1281px) {
+    #map_base svg {
+        height: 580px;
+    }
+    }
+
+    #rankList {
+        height: 100px;
+        overflow: auto;
+    }
+
+    .am-footer-default .am-footer-miscs {
+        color: white;
+        font-size: 13px;
+    }
+
+    #map {
+        /* width: 80%; */
+    }
+
+    #rankList {
+        height: 500px;
+        overflow: auto;
+    }
+
+    .am-alert-danger {
+        background-color: #87CEFA;
+        border-color:#87CEFA;
+        color: #fff;    
+        margin-top: -20px;
+    }
+
+
+    
+    .activity-wrap{
+        overflow:scroll;
+        overflow-x:auto;
+        height: 400px;
+        width: 100%;
+    }
+
+
+    .activity-wrap .item{
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        min-height: 80px;
+        padding:10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .activity-wrap .item .img{
+        height: 60px;
+        width:60px;
+        float: left;
+    }
+    .activity-wrap .item .img img{
+        width:100%;
+        border-radius: 50%;
+    }
+
+    .activity-wrap .item .user{
+        width: 100%;
+        float: left;
+        padding-left: 5px;
+    }
+
+    .activity-wrap .item .user .time{
+        font-size: 12px;
+        color: #aaa;
+        padding-left: 5px;
+    }
+    
+    .content{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        color: #ff6e40;
+        white-space:normal;
+        font-size: 13px
+    }
+
+    .info{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        color: #ff6e40;
+    }
