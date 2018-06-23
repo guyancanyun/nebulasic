@@ -2,7 +2,7 @@
 // 合约地址（测试网络）
 //var dappAddress = "n21EBq9eB6dkwFVzsqrHn89SPia9owgTGYE";
 // 合约地址（生产网络）
-var dappAddress = "n1q8MwxFjmUTeU2hyL4hRQMj4oCE1M47RsP";
+var dappAddress = "n1sH7x546VXN5mdmi2TAwjxBDeeUyeMBKPh";
 // 直接访问星云链的api
 var nebulas = require("nebulas"),
     Account = nebulas.Account,
