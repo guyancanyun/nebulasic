@@ -200,7 +200,7 @@
 
 
       .spinner {
-        margin: 100px auto 0;
+        vertical-align: middle;
         width: 150px;
         text-align: center;
       }
