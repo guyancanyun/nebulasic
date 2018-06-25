@@ -753,10 +753,10 @@ $(".team").click(function(){
         type: 1
         ,title: '为喜爱的球队打CALL' //不显示标题栏
         ,closeBtn: 1
-        ,area: ['500px', '600px']
+        ,area: ['50%', '80%']
         ,shade: 0
         ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-        ,resize: false
+        ,resize: true
         ,btn: ['评论', '投票','取消']
         ,btnAlign: 'c'
         ,shadeClose: true
@@ -779,7 +779,7 @@ $(".team").click(function(){
         +'  <div class="bounce3"></div>'
         +'</div>'
         +'</div>'
-        +'<div style="padding-left:10px;padding-right:10px;position:absolute; bottom:0px; width:100%" ><textarea id="inputtext" style="line-height:20px;background:#dddddd" class="single-textarea" placeholder="输入留言..."  required=""></textarea>  </div>'
+        +'<div style="position:absolute; bottom:0; width:100%" ><textarea id="inputtext" style="line-height:20px;background:#dddddd" class="single-textarea" placeholder="输入留言..."  required=""></textarea>  </div>'
 	    +'</div>'
         ,btn1: function(index, layero){
             // console.log($("#aa").val());
