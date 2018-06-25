@@ -795,7 +795,13 @@ $(".team").click(function(){
                 callCommentApi(team,content);
                 // layer.close();
             }
-            //return false 开启该代码可禁止点击该按钮关闭
+            layer.confirm('确定已经完成评论？', {
+                btn: ['确认','取消'] //按钮
+              }, function(){
+                  layer.closeAll();
+              }, function(){
+              });
+            return false;
           }
         ,btn2: function(index, layero){
             // console.log($("#aa").val());
@@ -804,8 +810,14 @@ $(".team").click(function(){
                 layer.alert('拒绝投票给中国队！', {icon: 5});
             }else{
                 callVoteApi(team);
+                layer.confirm('确定已经完成投票？', {
+                    btn: ['确认','取消'] //按钮
+                  }, function(){
+                    layer.closeAll();
+                  }, function(){
+                  });
             }
-            //return false 开启该代码可禁止点击该按钮关闭
+            return false;
           }
         ,btn3: function(index, layero){
             // console.log($("#aa").val());
