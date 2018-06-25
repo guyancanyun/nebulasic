@@ -793,14 +793,14 @@ $(".team").click(function(){
                 layer.alert('输入字符数超过60个，请重新输入', {icon: 2});
             }else{
                 callCommentApi(team,content);
-                // layer.close();
+                layer.confirm('确定已经完成评论？', {
+                    btn: ['确认','取消'] //按钮
+                  }, function(){
+                      layer.closeAll();
+                      layer.msg("操作需要15-20s时间确认，请您耐心等待");
+                  }, function(){
+                  });
             }
-            layer.confirm('确定已经完成评论？', {
-                btn: ['确认','取消'] //按钮
-              }, function(){
-                  layer.closeAll();
-              }, function(){
-              });
             return false;
           }
         ,btn2: function(index, layero){
@@ -814,6 +814,7 @@ $(".team").click(function(){
                     btn: ['确认','取消'] //按钮
                   }, function(){
                     layer.closeAll();
+                    layer.msg("操作需要15-20s时间确认，请您耐心等待");
                   }, function(){
                   });
             }
