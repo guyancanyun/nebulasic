@@ -89,7 +89,8 @@
     .activity-wrap{
         overflow:scroll;
         overflow-x:auto;
-        height: 400px;
+		position: absolute; top: 0; left: 0 ; bottom:0;
+		margin-bottom:100px;
         width: 100%;
     }
 
