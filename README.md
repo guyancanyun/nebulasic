@@ -10,7 +10,7 @@
 ## DAPP实战
 1. [十二生肖抽奖](https://github.com/guyancanyun/nebulasic/tree/master/project/lottery)  ([点击这里试玩](https://guyancanyun.github.io/nebulasic/project/lottery/index.html))  
 
-
+1. [世界杯互动](https://github.com/guyancanyun/nebulasic/tree/master/project/worldcup)  ([点击这里试玩](https://guyancanyun.github.io/nebulasic/project/worldcup/index.html))  
 
 
 
